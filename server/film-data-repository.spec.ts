@@ -1,5 +1,5 @@
 import { async } from '@angular/core/testing';
-import FilmDataRepository from './film-data-repository';
+import { FilmDataRepository } from './film-data-repository';
 import Film from './film';
 
 describe('FilmDataRepository', () => {
