@@ -8,7 +8,7 @@ export default class FilmDataRepository implements IDataRepository<Film> {
   constructor() { }
 
   public get(id?: number): Film|Array<Film> {
-    
+
     return id
          ? _.find(<Array<Film>>data, film => film.id === id) as Film
          : <Array<any>>data;

@@ -1,22 +1,23 @@
 # AngularLobApp
 
-An example of an Angular app with various functionality for a Line of Business application.
-
-Auth0 integation
-Unit tests using Karma
-e2e tests using Protractor
-Continuous integration with Travis
-Bundling and AOT with WebPack
-TypeScript with TSLint and Typings
-WallabyJS
-Server with simple REST API using backend Json data files
-Data Repository pattern using interfaces with generics 
-
 [![Dependency Status](https://david-dm.org/stevenh77/angular-lob-app.svg)](https://david-dm.org/stevenh77/angular-lob-app)
 [![devDependency Status](https://david-dm.org/stevenh77/angular-lob-app/dev-status.svg)](https://david-dm.org/stevenh77/angular-lob-app#info=devDependencies)
 [![GitHub version](https://badge.fury.io/gh/stevenh77%2Fangular-lob-app.svg)](https://badge.fury.io/gh/stevenh77%2Fangular-lob-app)
 [![Build Status](https://travis-ci.org/stevenh77/angular-lob-app.svg?branch=master)](https://travis-ci.org/stevenh77/angular-lob-app)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
+
+An example of an Angular app with various functionality for a Line of Business application.
+
+* Auth0 integation
+* Unit tests using Karma
+* e2e tests using Protractor
+* Continuous integration with Travis
+* Bundling and AOT with WebPack
+* TypeScript with TSLint and Typings
+* WallabyJS
+* Server with simple REST API using backend Json data files
+* Data Repository pattern using interfaces with generics 
+* Bootstrap styling
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 

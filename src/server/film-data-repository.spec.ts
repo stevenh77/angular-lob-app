@@ -2,7 +2,7 @@ import { async } from '@angular/core/testing';
 import FilmDataRepository from './film-data-repository';
 import Film from './film';
 
-describe('FilmDataRepository_tests', () => {
+describe('FilmDataRepository', () => {
   beforeEach(async(() => {
       // nothing to set it yet
   }));
