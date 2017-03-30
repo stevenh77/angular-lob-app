@@ -3,7 +3,6 @@
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "baseUrl": "src",
-    "exclude": [ "wallabyTest.ts" ],
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
