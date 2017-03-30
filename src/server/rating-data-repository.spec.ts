@@ -2,7 +2,7 @@ import { async } from '@angular/core/testing';
 import RatingDataRepository from './rating-data-repository';
 import Rating from './rating';
 
-describe('RatingDataRepository_tests', () => {
+describe('RatingDataRepository', () => {
   beforeEach(async(() => {
       // nothing to set it yet
   }));

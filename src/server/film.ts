@@ -4,7 +4,7 @@ export default class Film {
     id: number;
     title: string;
     imageUrl: string;
-    releaseDate: string;    // dateTime
+    releaseDate: Date;
     rating: Rating;
     length: number;
     actors: Array<{ name: string }>;
