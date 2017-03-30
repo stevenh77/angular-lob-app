@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/stevenh77/angular-lob-app.svg?branch=master)](https://travis-ci.org/stevenh77/angular-lob-app)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
-An example of an Angular app with various functionality for a Line of Business application.
+An example line of business app written in Angular2 with TypeScript.
 
 * Auth0 integation
 * Unit tests using Karma
