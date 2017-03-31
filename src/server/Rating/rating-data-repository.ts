@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import IDataRepository from './IDataRepository';
+import IDataRepository from '../IDataRepository';
 import Rating from './rating';
 const data: Array<Rating> = require('./rating-data.json');
 

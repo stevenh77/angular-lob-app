@@ -1,4 +1,4 @@
-import Rating from './rating';
+import Rating from '../Rating/rating';
 
 export default class Film {
     id?: number;

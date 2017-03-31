@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import IDataRepository from './IDataRepository';
+import IDataRepository from '../IDataRepository';
 import Film from './film';
 const data: Array<Film> = require('./film-data.json');
 

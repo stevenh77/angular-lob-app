@@ -3,19 +3,16 @@ import * as bodyParser from 'body-parser';
 import * as morgan from 'morgan';
 import * as cors from 'cors';
 import * as compression from 'compression';
-import { FilmDataRepository } from './film-data-repository';
-import Film from './film';
-import { RatingDataRepository } from './rating-data-repository';
-import Rating from './rating';
+import { FilmDataRepository } from './Film/film-data-repository';
+import Film from './Film/film';
+import { RatingDataRepository } from './Rating/rating-data-repository';
+import Rating from './Rating/rating';
 
 const app = express();
 const port = 4201;
 
-// parse application/json and look for raw text
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// parse application/json
 app.use(bodyParser.json({ type: 'application/json'}));
-app.use(bodyParser.text());
 
 app.use(morgan('combined'));    // logs incoming requests
 app.use(cors());                // allow all cors
@@ -32,6 +29,7 @@ app.route('/films/:id?')
   .post((req, res) => {
     const film = new Film();
     Object.assign(film, req.body as Film);
+    console.log(film);
     const result = filmRepo.insert(film);
     res.json(result);
   })
@@ -39,6 +37,7 @@ app.route('/films/:id?')
   .put((req, res) => {
     const film = new Film();
     Object.assign(film, req.body as Film);
+    console.log(film);
     const result = filmRepo.update(film);
     res.json(result);
   })
