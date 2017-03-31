@@ -21,8 +21,8 @@ app.use(compression());         // gzips response
 const filmRepo = new FilmDataRepository();
 
 app.route('/films/:filmId?')
-  .get((req, res) => { res.send(filmRepo.get(req.params.filmId)); });
-  // .post((req, res) => { film.insert(); })
+  .get((req, res) => { res.send(filmRepo.get(req.params.filmId)); })
+  .post((req, res) => { filmRepo.insert(JSON.parse(req.body)); });
   // .put((req, res) => { film.update(); })
   // .delete((req, res) => { film.delete(); });
 

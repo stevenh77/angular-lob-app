@@ -7,13 +7,68 @@ describe('RatingDataRepository', () => {
       // nothing to set it yet
   }));
 
-  it(`should return an array of ratings from a get with no parameter passed'`, async(() => {
-    const result = new RatingDataRepository().get() as Array<Rating>;
-    expect(result.length).toEqual(6);
-  }));
+  describe('Get()', () => {
+    it(`should return an array of ratings from a get with no parameter passed'`, async(() => {
+      const result = new RatingDataRepository().get() as Array<Rating>;
+      expect(result.length).toEqual(6);
+    }));
 
-  it(`should return a specfic rating from a get when id is passed'`, async(() => {
-    const result = new RatingDataRepository().get(2) as Rating;
-    expect(result.name).toEqual('PG');
-  }));
+    it(`should return a specfic rating from a get when id is passed'`, async(() => {
+      const result = new RatingDataRepository().get(3) as Rating;
+      expect(result.name).toEqual('12A');
+    }));
+  });
+
+  describe('Insert()', () => {
+    it(`should insert a rating and return an id`, async(() => {
+      const rating = new Rating();
+      rating.name = 'XXX';
+      const result = new RatingDataRepository().insert(rating);
+      expect(result).toBeGreaterThan(6);
+    }));
+
+    it(`should not insert a rating if the title is not unique`, async(() => {
+      const rating = new Rating();
+      rating.name = '12A';
+
+      // couldn't get this working...
+      // expect(new RatingDataRepository().insert(duplicateRating)).toThrowError();
+      const result = new RatingDataRepository().insert(rating);
+      expect(result).toBe(0);
+    }));
+  });
+
+  describe('Update()', () => {
+    it(`should update a rating with a valid id`, async(() => {
+      const rating = new Rating();
+      rating.id = 2;
+      rating.name = 'XXX';
+      const result = new RatingDataRepository().update(rating);
+      expect(result).toBe(1);
+    }));
+
+    it(`should not update a rating with an invalid id`, async(() => {
+      const rating = new Rating();
+      rating.id = 0;
+      rating.name = 'XXX';
+      const result = new RatingDataRepository().update(rating);
+      expect(result).toBe(0);
+    }));
+  });
+
+  describe('Delete()', () => {
+    it(`should delete a rating with a valid id`, async(() => {
+      const rating = new Rating();
+      rating.id = 2;
+      const result = new RatingDataRepository().delete(rating);
+      expect(result).toBe(1);
+    }));
+
+    it(`should not delete a rating with an invalid id`, async(() => {
+      const rating = new Rating();
+      rating.id = 0;
+      const result = new RatingDataRepository().delete(rating);
+      expect(result).toBe(0);
+    }));
+  });
 });

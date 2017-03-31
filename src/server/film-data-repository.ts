@@ -5,7 +5,7 @@ import Film from './film';
 
 export class FilmDataRepository implements IDataRepository<Film> {
 
-  constructor() { }
+  constructor() {}
 
   public get(id?: number): Film|Array<Film> {
     return id
@@ -13,15 +13,34 @@ export class FilmDataRepository implements IDataRepository<Film> {
       : <Array<Film>>data;
   };
 
-  public insert(film: Film) {
-    return;
+  public insert(film: Film): number {
+    const filmInRepo = _.find(<Array<Film>>data, f => f.title == film.title) as Film;
+    if (filmInRepo != null) {
+      // throw new Error('Film title already exists');
+      return 0;
+    }
+    film.id = data.length + 1;
+    (<Array<Film>>data).push(film);
+    return film.id;
   };
 
   public update(film: Film) {
-    return;
+    const filmInRepo = _.find(<Array<Film>>data, f => f.id == film.id) as Film;
+    if (filmInRepo == null) {
+      // throw new Error('Film not found');
+      return 0;
+    }
+    _.merge(data, film);
+    return 1;
   };
 
   public delete(film: Film) {
-    return;
+    const filmInRepo = _.find(<Array<Film>>data, f => f.id == film.id) as Film;
+    if (filmInRepo == null) {
+      // throw new Error('Film not found');
+      return 0;
+    }
+    _.remove(<Array<Film>>data, f => f.id == film.id);
+    return 1;
   };
 }
