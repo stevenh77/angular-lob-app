@@ -27,7 +27,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## API server
 
-Run `ts-node server/server.ts` for the API server.  Navigate to `http://localhost:4201/films'.
+Run `ts-node src/server/server.ts` for the API server.  Navigate to `http://localhost:4201/films'.
 
 ## Build
 
