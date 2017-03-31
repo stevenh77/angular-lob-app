@@ -4,9 +4,9 @@ import * as morgan from 'morgan';
 import * as cors from 'cors';
 import * as compression from 'compression';
 import { FilmDataRepository } from './Film/film-data-repository';
-import Film from './Film/film';
+import Film from './film/film';
 import { RatingDataRepository } from './Rating/rating-data-repository';
-import Rating from './Rating/rating';
+import Rating from './rating/rating';
 
 const app = express();
 const port = 4201;
