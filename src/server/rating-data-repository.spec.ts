@@ -1,5 +1,5 @@
 import { async } from '@angular/core/testing';
-import RatingDataRepository from './rating-data-repository';
+import { RatingDataRepository } from './rating-data-repository';
 import Rating from './rating';
 
 describe('RatingDataRepository', () => {
