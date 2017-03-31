@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import IDataRepository from './IDataRepository';
-const data = require('./rating-data.json');
 import Rating from './rating';
+const data: Array<Rating> = require('./rating-data.json');
 
 export class RatingDataRepository implements IDataRepository<Rating> {
 
@@ -9,38 +9,38 @@ export class RatingDataRepository implements IDataRepository<Rating> {
 
   public get(id?: number): Rating|Array<Rating> {
     return id
-      ? _.find(<Array<Rating>>data, Rating => Rating.id == id) as Rating
-      : <Array<Rating>>data;
+      ? _.find(data, Rating => Rating.id == id)
+      : data;
   };
 
-  public insert(Rating: Rating): number {
-    const RatingInRepo = _.find(<Array<Rating>>data, r => r.name == Rating.name) as Rating;
-    if (RatingInRepo != null) {
+  public insert(rating: Rating): Rating {
+    const ratingInRepo = _.find(data, r => r.name == rating.name);
+    if (ratingInRepo != null) {
       // throw new Error('Rating title already exists');
-      return 0;
+      return null;
     }
-    Rating.id = data.length + 1;
-    (<Array<Rating>>data).push(Rating);
-    return Rating.id;
+    rating.id = data.length + 1;
+    data.push(rating);
+    return rating;
   };
 
-  public update(Rating: Rating) {
-    const RatingInRepo = _.find(<Array<Rating>>data, f => f.id == Rating.id) as Rating;
-    if (RatingInRepo == null) {
+  public update(rating: Rating) {
+    const index = _.indexOf(data, _.find(data, r => r.id == rating.id));
+    if (index === -1) {
       // throw new Error('Rating not found');
       return 0;
     }
-    _.merge(data, Rating);
+    data.splice(index, 1, rating);
     return 1;
   };
 
-  public delete(Rating: Rating) {
-    const RatingInRepo = _.find(<Array<Rating>>data, f => f.id == Rating.id) as Rating;
-    if (RatingInRepo == null) {
+  public delete(id: number) {
+    const ratingInRepo = _.find(data, r => r.id == id);
+    if (ratingInRepo == null) {
       // throw new Error('Rating not found');
       return 0;
     }
-    _.remove(<Array<Rating>>data, f => f.id == Rating.id);
+    _.remove(data, r => r.id == id);
     return 1;
   };
 }

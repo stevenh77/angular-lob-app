@@ -16,21 +16,24 @@ describe('FilmDataRepository', () => {
   });
 
   describe('Insert()', () => {
-    it(`should insert a film and return an id`, async(() => {
+    it(`should insert a film and return a film with id 4`, async(() => {
       const film = new Film();
-      film.title = 'dummy';
+      film.title = 'new title';
       const result = new FilmDataRepository().insert(film);
-      expect(result).toBeGreaterThan(3);
+
+      expect(result).toEqual(jasmine.any(Film));
+      expect(result.id).toEqual(4);
+      expect(result.title).toEqual(film.title);
     }));
 
-    it(`should not insert a film if the title is not unique`, async(() => {
+    it(`should return null if inserting film with non unique title`, async(() => {
       const film = new Film();
       film.title = 'Fury';
 
       // couldn't get this working...
-      // expect(new FilmDataRepository().insert(duplicateFilm)).toThrowError();
+      // expect(new DataRepository().insert(duplicate)).toThrowError();
       const result = new FilmDataRepository().insert(film);
-      expect(result).toBe(0);
+      expect(result).toBe(null);
     }));
   });
 
@@ -38,7 +41,7 @@ describe('FilmDataRepository', () => {
     it(`should update a film with a valid id`, async(() => {
       const film = new Film();
       film.id = 2;
-      film.releaseDate = new Date(Date.now());
+      film.title = 'updated';
       const result = new FilmDataRepository().update(film);
       expect(result).toBe(1);
     }));
@@ -46,7 +49,7 @@ describe('FilmDataRepository', () => {
     it(`should not update a film with an invalid id`, async(() => {
       const film = new Film();
       film.id = 0;
-      film.releaseDate = new Date(Date.now());
+      film.title = 'not updated';
       const result = new FilmDataRepository().update(film);
       expect(result).toBe(0);
     }));
@@ -54,16 +57,12 @@ describe('FilmDataRepository', () => {
 
   describe('Delete()', () => {
     it(`should delete a film with a valid id`, async(() => {
-      const film = new Film();
-      film.id = 2;
-      const result = new FilmDataRepository().delete(film);
+      const result = new FilmDataRepository().delete(2);
       expect(result).toBe(1);
     }));
 
-    it(`should not delete a film with an invalid id`, async(() => {
-      const film = new Film();
-      film.id = 0;
-      const result = new FilmDataRepository().delete(film);
+    it(`should not delete a rating with an invalid id`, async(() => {
+      const result = new FilmDataRepository().delete(0);
       expect(result).toBe(0);
     }));
   });

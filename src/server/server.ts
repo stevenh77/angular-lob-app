@@ -4,12 +4,15 @@ import * as morgan from 'morgan';
 import * as cors from 'cors';
 import * as compression from 'compression';
 import { FilmDataRepository } from './film-data-repository';
+import Film from './film';
 import { RatingDataRepository } from './rating-data-repository';
+import Rating from './rating';
 
 const app = express();
 const port = 4201;
 
-app.use(bodyParser.json());     // parse application/json
+// parse application/json and look for raw text
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: 'application/json'}));
 app.use(bodyParser.text());
@@ -20,18 +23,60 @@ app.use(compression());         // gzips response
 
 const filmRepo = new FilmDataRepository();
 
-app.route('/films/:filmId?')
-  .get((req, res) => { res.send(filmRepo.get(req.params.filmId)); })
-  .post((req, res) => { filmRepo.insert(JSON.parse(req.body)); });
-  // .put((req, res) => { film.update(); })
-  // .delete((req, res) => { film.delete(); });
+app.route('/films/:id?')
+
+  .get((req, res) => {
+    res.json(filmRepo.get(req.params.id));
+  })
+
+  .post((req, res) => {
+    const film = new Film();
+    Object.assign(film, req.body as Film);
+    const result = filmRepo.insert(film);
+    res.json(result);
+  })
+
+  .put((req, res) => {
+    const film = new Film();
+    Object.assign(film, req.body as Film);
+    const result = filmRepo.update(film);
+    res.json(result);
+  })
+
+  .delete((req, res) => {
+    filmRepo.delete(req.params.id) === 1
+      ? res.json('Success')
+      : res.json('Failed');
+    }
+  );
 
 const ratingRepo = new RatingDataRepository();
-app.route('/ratings/:ratingId?')
-  .get((req, res) => { res.send(ratingRepo.get(req.params.ratingId)); });
-  // .post((req, res) => { rating.insert(); })
-  // .put((req, res) => { rating.update(); })
-  // .delete((req, res) => { rating.delete(); });
+
+app.route('/ratings/:id?')
+  .get((req, res) => {
+    res.send(ratingRepo.get(req.params.id));
+   })
+
+  .post((req, res) => {
+    const rating = new Rating();
+    Object.assign(rating, req.body as Rating);
+    const result = ratingRepo.insert(rating);
+    res.json(result);
+  })
+
+  .put((req, res) => {
+    const rating = new Rating();
+    Object.assign(rating, req.body as Rating);
+    const result = ratingRepo.update(rating);
+    res.json(result);
+  })
+
+  .delete((req, res) => {
+    ratingRepo.delete(req.params.id) === 1
+      ? res.send('Success')
+      : res.send('Failed');
+    }
+  );
 
 app.listen(port);
 console.log('Listening on port ' + port);

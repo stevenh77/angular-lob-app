@@ -1,7 +1,7 @@
 interface IDataRepository<T> {
-    delete(T): number;
+    delete(id: number): number;
     get(id?: number): T|Array<T>;
-    insert(T): number;
+    insert(T): T;
     update(T): number;
 }
 export default IDataRepository;

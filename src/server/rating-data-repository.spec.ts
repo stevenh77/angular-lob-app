@@ -20,21 +20,23 @@ describe('RatingDataRepository', () => {
   });
 
   describe('Insert()', () => {
-    it(`should insert a rating and return an id`, async(() => {
+    it(`should insert a rating and return a rating`, async(() => {
       const rating = new Rating();
       rating.name = 'XXX';
       const result = new RatingDataRepository().insert(rating);
-      expect(result).toBeGreaterThan(6);
+      expect(result).toEqual(jasmine.any(Rating));
+      expect(result.id).toEqual(7);
+      expect(result.name).toEqual(rating.name);
     }));
 
-    it(`should not insert a rating if the title is not unique`, async(() => {
+    it(`should return null if inserting Rating with non unique name`, async(() => {
       const rating = new Rating();
       rating.name = '12A';
 
       // couldn't get this working...
-      // expect(new RatingDataRepository().insert(duplicateRating)).toThrowError();
+      // expect(new DataRepository().insert(duplicate)).toThrowError();
       const result = new RatingDataRepository().insert(rating);
-      expect(result).toBe(0);
+      expect(result).toBe(null);
     }));
   });
 
@@ -58,16 +60,12 @@ describe('RatingDataRepository', () => {
 
   describe('Delete()', () => {
     it(`should delete a rating with a valid id`, async(() => {
-      const rating = new Rating();
-      rating.id = 2;
-      const result = new RatingDataRepository().delete(rating);
+      const result = new RatingDataRepository().delete(2);
       expect(result).toBe(1);
     }));
 
     it(`should not delete a rating with an invalid id`, async(() => {
-      const rating = new Rating();
-      rating.id = 0;
-      const result = new RatingDataRepository().delete(rating);
+      const result = new RatingDataRepository().delete(0);
       expect(result).toBe(0);
     }));
   });

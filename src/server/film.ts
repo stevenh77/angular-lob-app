@@ -1,7 +1,7 @@
 import Rating from './rating';
 
 export default class Film {
-    id: number;
+    id?: number;
     title: string;
     imageUrl: string;
     releaseDate: Date;
