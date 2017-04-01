@@ -4,7 +4,7 @@ var webpackPostprocessor = wallabyWebpack({
   entryPatterns: [
     'src/wallabyTest.js',
     'src/**/*spec.js',
-    // "!src/server/**/*Spec.js"
+    'src/server/**/*Spec.js'
   ],
 
   module: {
