@@ -9,15 +9,16 @@
 An example line of business app written in Angular2 with TypeScript.
 
 * Auth0 integation
-* Unit tests using Karma with PhantomJS
+* Server with simple REST API using backend Json data files
+* Data Repository pattern using interfaces with generics 
+* Bootstrap styling
+* Unit tests using Karma, Jasmine and PhantomJS
 * e2e tests using Protractor
+* Web REST api tests using ts-node, child-process and Jasmine
 * Continuous integration with Travis
 * Bundling and AOT with WebPack
 * TypeScript with TSLint and Typings
 * WallabyJS
-* Server with simple REST API using backend Json data files
-* Data Repository pattern using interfaces with generics 
-* Bootstrap styling
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
