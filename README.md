@@ -1,6 +1,6 @@
 # AngularLobApp
 
-[![Windows Build Status](https://ci.appveyor.com/project/stevenh77/angular-lob-app/branch/master?svg=true&label=Windows+build "Windows Build Status")](https://ci.appveyor.com/project/stevenh77/angular-lob-app/branch/master)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/stevenh77/angular-lob-app?branch=master&svg=true)](https://ci.appveyor.com/project/stevenh77/angular-lob-app/branch/master)
 [![Linux and OS X Build Status](https://travis-ci.org/stevenh77/angular-lob-app.svg?branch=master)](https://travis-ci.org/stevenh77/angular-lob-app)
 [![Dependency Status](https://david-dm.org/stevenh77/angular-lob-app.svg)](https://david-dm.org/stevenh77/angular-lob-app)
 [![devDependency Status](https://david-dm.org/stevenh77/angular-lob-app/dev-status.svg)](https://david-dm.org/stevenh77/angular-lob-app#info=devDependencies)
