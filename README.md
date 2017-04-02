@@ -1,9 +1,10 @@
 # AngularLobApp
 
+[![Windows Build Status](https://ci.appveyor.com/project/stevenh77/angular-lob-app/branch/master?svg=true&label=Windows+build "Windows Build Status")](https://ci.appveyor.com/project/stevenh77/angular-lob-app/branch/master)
+[![Linux and OS X Build Status](https://travis-ci.org/stevenh77/angular-lob-app.svg?branch=master)](https://travis-ci.org/stevenh77/angular-lob-app)
 [![Dependency Status](https://david-dm.org/stevenh77/angular-lob-app.svg)](https://david-dm.org/stevenh77/angular-lob-app)
 [![devDependency Status](https://david-dm.org/stevenh77/angular-lob-app/dev-status.svg)](https://david-dm.org/stevenh77/angular-lob-app#info=devDependencies)
 [![GitHub version](https://badge.fury.io/gh/stevenh77%2Fangular-lob-app.svg)](https://badge.fury.io/gh/stevenh77%2Fangular-lob-app)
-[![Build Status](https://travis-ci.org/stevenh77/angular-lob-app.svg?branch=master)](https://travis-ci.org/stevenh77/angular-lob-app)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 An example line of business app written in Angular2 with TypeScript.
