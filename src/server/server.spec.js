@@ -4,7 +4,7 @@ let request = require('request');
 describe('Server', () => {
 
   beforeAll(function(done) {
-    const cmd = 'ts-node server.ts';
+    const cmd = 'ts-node src/server/server.ts';
     serverProcess = child_process.exec(cmd, (error, stdout, stderr) => { });
     setTimeout(function() {
       done();

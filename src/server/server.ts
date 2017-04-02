@@ -3,9 +3,9 @@ import * as bodyParser from 'body-parser';
 import * as morgan from 'morgan';
 import * as cors from 'cors';
 import * as compression from 'compression';
-import { FilmDataRepository } from './Film/film-data-repository';
+import { FilmDataRepository } from './film/film-data-repository';
 import Film from './film/film';
-import { RatingDataRepository } from './Rating/rating-data-repository';
+import { RatingDataRepository } from './rating/rating-data-repository';
 import Rating from './rating/rating';
 
 const app = express();

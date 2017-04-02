@@ -30,7 +30,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ts-node src/server/server.ts` for the API server.  Navigate to `http://localhost:4201/films'.
 
-To test, run `cd src/server` then `jasmine`.
+To test, run `jasmine src/server/server.spec.js`.
 
 ## Build
 
