@@ -7,8 +7,8 @@ describe('angular-lob-app App', () => {
     page = new AngularLobAppPage();
   });
 
-  it('should display title saying Home', () => {
+  it('should display title saying Angular LOB App', () => {
     page.navigateTo();
-    // expect(page.getTitleText()).toEqual('Home');
+    expect<any>(page.getTitleText()).toEqual('Angular LOB App');
   });
 });

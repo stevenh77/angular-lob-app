@@ -6,7 +6,7 @@ export class AngularLobAppPage {
   }
 
   getParagraphText() {
-    return element(by.css('main home h1')).getText();
+    return element(by.css('app-root h1')).getText();
   }
 
   getTitleText() {
