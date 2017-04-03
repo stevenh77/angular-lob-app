@@ -9,12 +9,12 @@ export class FilmDataRepository implements IDataRepository<Film> {
 
   public get(id?: number): Film|Array<Film> {
     return id
-      ? _.find(data, film => film.id == id)
+      ? _.find(data, film => film.id === id)
       : data;
   };
 
   public insert(film: Film): Film {
-    const filmInRepo = _.find(data, f => f.title == film.title);
+    const filmInRepo = _.find(data, f => f.title === film.title);
     if (filmInRepo != null) {
       // throw new Error('Film title already exists');
       return null;
@@ -25,7 +25,7 @@ export class FilmDataRepository implements IDataRepository<Film> {
   };
 
   public update(film: Film) {
-     const index = _.indexOf(data, _.find(data, f => f.id == film.id));
+     const index = _.indexOf(data, _.find(data, f => f.id === film.id));
     if (index === -1) {
       // throw new Error('Film not found');
       return 0;
@@ -35,12 +35,12 @@ export class FilmDataRepository implements IDataRepository<Film> {
   };
 
   public delete(id: number) {
-    const filmInRepo = _.find(data, f => f.id == id);
+    const filmInRepo = _.find(data, f => f.id === id);
     if (filmInRepo == null) {
       // throw new Error('Film not found');
       return 0;
     }
-    _.remove(data, f => f.id == id);
+    _.remove(data, f => f.id === id);
     return 1;
   };
 }

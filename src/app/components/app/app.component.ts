@@ -8,5 +8,8 @@ import { Auth } from 'app/services/auth/auth.service';
 })
 
 export class AppComponent {
-  constructor(private auth: Auth) {}
+  Auth: Auth;
+  constructor(private auth: Auth) {
+    this.Auth = auth;
+  }
 }

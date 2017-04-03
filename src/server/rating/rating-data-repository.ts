@@ -9,12 +9,12 @@ export class RatingDataRepository implements IDataRepository<Rating> {
 
   public get(id?: number): Rating|Array<Rating> {
     return id
-      ? _.find(data, Rating => Rating.id == id)
+      ? _.find(data, Rating => Rating.id === id)
       : data;
   };
 
   public insert(rating: Rating): Rating {
-    const ratingInRepo = _.find(data, r => r.name == rating.name);
+    const ratingInRepo = _.find(data, r => r.name === rating.name);
     if (ratingInRepo != null) {
       // throw new Error('Rating title already exists');
       return null;
@@ -25,7 +25,7 @@ export class RatingDataRepository implements IDataRepository<Rating> {
   };
 
   public update(rating: Rating) {
-    const index = _.indexOf(data, _.find(data, r => r.id == rating.id));
+    const index = _.indexOf(data, _.find(data, r => r.id === rating.id));
     if (index === -1) {
       // throw new Error('Rating not found');
       return 0;
@@ -35,12 +35,12 @@ export class RatingDataRepository implements IDataRepository<Rating> {
   };
 
   public delete(id: number) {
-    const ratingInRepo = _.find(data, r => r.id == id);
+    const ratingInRepo = _.find(data, r => r.id === id);
     if (ratingInRepo == null) {
       // throw new Error('Rating not found');
       return 0;
     }
-    _.remove(data, r => r.id == id);
+    _.remove(data, r => r.id === id);
     return 1;
   };
 }
