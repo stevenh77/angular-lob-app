@@ -6,6 +6,10 @@ export class AngularLobAppPage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('main home h1')).getText();
+  }
+
+  getTitleText() {
+    return element(by.css('app-root nav .navbar-brand')).getText();
   }
 }

@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test --single-run & ng e2e & jasmine src/server/server.spec.js",
+    "test": "ng test --single-run",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angular2-jwt": "^0.2.0",
+    "auth0-lock": "^10.14.0",
     "body-parser": "^1.17.1",
     "compression": "^1.6.2",
     "cors": "^2.8.3",
@@ -57,7 +59,7 @@
     "protractor": "~5.1.0",
     "request": "^2.81.0",
     "ts-node": "3.0.2",
-    "tslint": "5.0.0",
+    "tslint": "^4.0.0",
     "typescript": "~2.2.0",
     "wallaby-webpack": "0.0.38"
   }

@@ -1,11 +1,11 @@
-import { ModuleWithProviders }         from '@angular/core';
-import { Routes, RouterModule }        from '@angular/router';
-import { HomeComponent }               from './home.component';
-import { AwayComponent }               from './away.component';
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'away', component: AwayComponent }
+  { path: 'settings', component: SettingsComponent }
 ];
 
 export const appRoutingProviders: any[] = [];

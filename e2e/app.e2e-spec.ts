@@ -7,8 +7,8 @@ describe('angular-lob-app App', () => {
     page = new AngularLobAppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display title saying Home', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    // expect(page.getTitleText()).toEqual('Home');
   });
 });

@@ -1,19 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { HomeComponent }       from './home.component';
-import { AwayComponent }       from './away.component';
+import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
+
+import { AppComponent } from './components/app/app.component';
+import { HomeComponent } from './components/home/home.component';
+import { SettingsComponent } from './components/settings/settings.component';
 import { routing, appRoutingProviders } from './app.routes';
+import { Auth } from 'app/services/auth/auth.service';
+import { AuthGuard } from 'app/services/auth/auth.guard';
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp( new AuthConfig({}), http, options);
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AwayComponent
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +29,16 @@ import { routing, appRoutingProviders } from './app.routes';
     HttpModule,
     routing
   ],
-  providers: [appRoutingProviders],
+  providers: [
+    appRoutingProviders,
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [ Http, RequestOptions ]
+    },
+    Auth,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 
