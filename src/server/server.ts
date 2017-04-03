@@ -23,7 +23,7 @@ const filmRepo = new FilmDataRepository();
 app.route('/films/:id?')
 
   .get((req, res) => {
-    res.json(filmRepo.get(req.params.id));
+    res.json(filmRepo.get(Number.parseInt(req.params.id)));
   })
 
   .post((req, res) => {
@@ -43,7 +43,7 @@ app.route('/films/:id?')
   })
 
   .delete((req, res) => {
-    filmRepo.delete(req.params.id) === 1
+    filmRepo.delete(Number.parseInt(req.params.id)) === 1
       ? res.json('Success')
       : res.json('Failed');
     }
@@ -53,7 +53,7 @@ const ratingRepo = new RatingDataRepository();
 
 app.route('/ratings/:id?')
   .get((req, res) => {
-    res.send(ratingRepo.get(req.params.id));
+    res.send(ratingRepo.get(Number.parseInt(req.params.id)));
    })
 
   .post((req, res) => {
@@ -71,7 +71,7 @@ app.route('/ratings/:id?')
   })
 
   .delete((req, res) => {
-    ratingRepo.delete(req.params.id) === 1
+    ratingRepo.delete(Number.parseInt(req.params.id)) === 1
       ? res.send('Success')
       : res.send('Failed');
     }

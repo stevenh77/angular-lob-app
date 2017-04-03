@@ -1,0 +1,1 @@
+ng test --single-run & ng e2e & jasmine src//server//server.spec.js
